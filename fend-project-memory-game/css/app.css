@@ -168,7 +168,7 @@ h1 {
 	padding-bottom: 5%;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 409px) {
 	h1 {
 		font-size: 1.75em;
 	}
@@ -178,12 +178,12 @@ h1 {
 	}
 
 	.deck .card {
-		height: 3.5rem;
-		width: 3.5rem;
+		height: 3.55rem;
+		width: 3.55rem;
 	}
 }
 
-@media screen and (max-width: 514px) and (min-width: 420px) {
+@media screen and (max-width: 497px) and (min-width: 410px) {
 	h1 {
 		font-size: 1.75em;
 	}
@@ -199,7 +199,7 @@ h1 {
 	
 }
 
-@media screen and (min-width: 515px) and (max-width: 628px) {
+@media screen and (min-width: 498px) and (max-width: 611px) {
 	.deck {
 		width: 70%;
 	}
@@ -211,7 +211,7 @@ h1 {
 }
 
 
-@media screen and (min-width: 629px) and (max-width: 773px) {
+@media screen and (min-width: 612px) and (max-width: 756px) {
 	.deck {
 		width: 65%;
 	}
@@ -222,40 +222,40 @@ h1 {
 	}
 }
 
-@media screen and (min-width: 774px) and (max-width: 947px) {
+@media screen and (min-width: 757px) and (max-width: 916px) {
 	.deck {
 		width: 55%;
 	}
 
 	.deck .card {
-		height: 5.5rem;
-		width: 5.5rem;
+		height: 5.4rem;
+		width: 5.4rem;
 	}
 }
 
-@media screen and (min-width: 948px) and (max-width: 1168px) {
+@media screen and (min-width: 917px) and (max-width: 1120px) {
 	.deck {
 		width: 50%;
 	}
 
 	.deck .card {
-		height: 6.3rem;
-		width: 6.3rem;
+		height: 6rem;
+		width: 6rem;
 	}
 }
 
-@media screen and (min-width: 1169px) and (max-width: 1410px) {
+@media screen and (min-width: 1121px) and (max-width: 1360px) {
 	.deck {
 		width: 50%;
 	}
 
 	.deck .card {
-		height: 7.9rem;
-		width: 7.9rem;
+		height: 7.6rem;
+		width: 7.6rem;
 	}
 }
 
-@media screen and (min-width: 1400px){
+@media screen and (min-width: 1360px){
 	.deck {
 		width: 50%;
 	}
