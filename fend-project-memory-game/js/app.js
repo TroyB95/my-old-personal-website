@@ -227,10 +227,22 @@ function playAgain(){
 	startTimer = setInterval(timer, 1000);
 }
 
+function star(){
+	 if(count < 15){
+		return('<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>');				
+	} else if (count < 25) {
+		return('<i class="fa fa-star"></i><i class="fa fa-star"></i>');
+	} else if (count < 35) {
+		return('<i class="fa fa-star"></i>');
+	} else {
+		return('')
+	}
+}
+
 // Function to determine if all are matched
 function finished(){
 	if(matchedCards.length == 16){
-		congratMes.innerHTML = 'You have completed it well done! Your final time was ' + minutes + ' minutes ' + seconds + ' seconds!';
+		congratMes.innerHTML = 'Well done! Your final time was ' + minutes + ' minutes ' + seconds + ' seconds! You scored ' + star() + ' stars!';
 		finishModal();
 		seconds = 0;
 		mintues = 0;
