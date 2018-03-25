@@ -18,7 +18,7 @@ To play, click one of the cards on the board and then click another to try and f
 
 Keep playing until you have matched all the cards on the board!
 
-## How to play
+## How to play?
 You can play this game in your browser by following this link!
 
 https://troyb95.github.io/fend-project-memory-game/
