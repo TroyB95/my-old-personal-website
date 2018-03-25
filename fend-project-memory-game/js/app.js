@@ -242,7 +242,7 @@ function star(){
 // Function to determine if all are matched
 function finished(){
 	if(matchedCards.length == 16){
-		congratMes.innerHTML = 'Well done! Your final time was ' + minutes + ' minutes ' + seconds + ' seconds! You scored ' + star() + ' stars!';
+		congratMes.innerHTML = '<p>Well done! Your final time was ' + minutes + ' minutes ' + seconds + ' seconds!</p> <p>It took you ' + count + ' Moves!</p><p>You scored ' + star() + ' stars!</p>';
 		finishModal();
 		seconds = 0;
 		mintues = 0;
