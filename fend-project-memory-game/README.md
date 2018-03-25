@@ -1,20 +1,31 @@
-# Memory Game Project
+# Memory Matching Game Project
 
 ## Table of Contents
-
+* [What is this?](#what_is_this?)
 * [Instructions](#instructions)
+* [How to play?](#How_to_play?)
 * [Contributing](#contributing)
 
+## What is this?
+This is a simple game of matching two of the same cards together. Once you have matched all the combinations on the board, you have won!
+
+Try to complete this in the shortest time possible with the least amount of moves!
+
+My personal record is 13 moves in 18 seconds! Can you beat it??
+
 ## Instructions
+To play, click one of the cards on the board and then click another to try and find its pair!
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Keep playing until you have matched all the cards on the board!
 
-To get started, open `js/app.js` and start building out the app's functionality
+## How to play
+You can play this game in your browser by following this link!
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+https://troyb95.github.io/fend-project-memory-game/
+
 
 ## Contributing
+This is a project for udacity. Therefore, I will most likely will not accept pull requests. 
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+If you do however think something could be improved, dont hesistate to create a pull request. =)
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
