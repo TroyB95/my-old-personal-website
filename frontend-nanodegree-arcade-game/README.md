@@ -18,8 +18,7 @@ The idea is to make it to the furthest round possible with the highest score
 ## How to play?
 You can play this game in your browser by following this link!
 
-
-
+TroyB95.github.io/frontend-nanodegree-arcade-game/
 
 ## Contributing
 This is a project for udacity. Therefore, I will most likely will not accept pull requests. 

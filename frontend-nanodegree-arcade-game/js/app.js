@@ -1,6 +1,5 @@
+
 let score = 0;
-let level = 0;
-let lives = 3;
 let gemCount = 0;
 const scoreCount = document.querySelector('.score');
 const levelCount = document.querySelector('.level');
@@ -12,13 +11,18 @@ replayBtn.addEventListener('click', function(){
 });
 
 // Prompt to select difficulty
-let difficulty = prompt('Please Select a Difficulty! (Default is Easy) \nEasy, Medium or Hard. \nPlease type it in the box below! ').toLowerCase();
-if(difficulty !== 'easy' && difficulty !== 'medium' && difficulty !== 'hard'){
+let difficulty = prompt('Please Select a Difficulty! (Default is Easy) \nEasy, Medium or Hard. \nPlease type it in the box below! ');
+if(difficulty != null){
+	difficulty.toLowerCase();
+} else {
+	alert('Press the restart button to start the game');
+}
+if(difficulty !== 'easy' && difficulty !== 'medium' && difficulty !== 'hard' && difficulty !== null){
 	difficulty = 'easy';
 }
 
 // Enemies our player must avoid
-var Enemy = function(x, y) {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -29,6 +33,7 @@ var Enemy = function(x, y) {
     // The x and y posistion variables where the enemy will be located
     this.x = x;
     this.y = y;
+    this.speed = speed;
 };
 
  
@@ -39,105 +44,39 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
 
-// -- Set the speeds depending on what difficulty is selected --
-if(difficulty === 'easy') {
-    // Check for enemy going off the screen to reset
-    if (this.x < 505 && level < 5){
-    	this.x += (100 * dt);
-    } else if (this.x < 505 && level < 10){
-    	this.x += (125 * dt); 
-    } else if (this.x < 505 && level < 15){
-    	this.x += (150 * dt); 
-    } else if (this.x < 505 && level < 20){
-    	this.x += (175 * dt); 
-    } else if (this.x < 505 && level < 25){
-    	this.x += (200 * dt); 
-    } else if (this.x < 505 && level < 30){
-    	this.x += (225 * dt); 
-    } else if (this.x < 505 && level < 35){
-    	this.x += (250 * dt); 
-    } else if (this.x < 505 && level < 40){
-    	this.x += (275 * dt); 
-    } else if (this.x < 505 && level < 45){
-    	this.x += (300 * dt); 
-    } else if (this.x < 505 && level < 50){
-    	this.x += (325 * dt); 
-    } else if (this.x < 505 && level >= 50){
-    	this.x += (350 * dt); 
-    } else {
-    	this.x = (-(Math.random() * 300));
-    }
-} else if (difficulty === 'medium') {
-	if (this.x < 505 && level < 5){
-    	this.x += (150 * dt);
-    } else if (this.x < 505 && level < 10){
-    	this.x += (175 * dt); 
-    } else if (this.x < 505 && level < 15){
-    	this.x += (200 * dt); 
-    } else if (this.x < 505 && level < 20){
-    	this.x += (225 * dt); 
-    } else if (this.x < 505 && level < 25){
-    	this.x += (250 * dt); 
-    } else if (this.x < 505 && level < 30){
-    	this.x += (275 * dt); 
-    } else if (this.x < 505 && level < 35){
-    	this.x += (300 * dt); 
-    } else if (this.x < 505 && level < 40){
-    	this.x += (325 * dt); 
-    } else if (this.x < 505 && level < 45){
-    	this.x += (350 * dt); 
-    } else if (this.x < 505 && level < 50){
-    	this.x += (375 * dt);
-    }  else if (this.x < 505 && level >= 50){
-    	this.x += (400 * dt);
-    } else {
-    	this.x = (-(Math.random() * 350));
-    }
-} else if (difficulty === 'hard'){
-	if (this.x < 505 && level < 5){
-    	this.x += (200 * dt);
-    } else if (this.x < 505 && level < 10){
-    	this.x += (225 * dt); 
-    } else if (this.x < 505 && level < 15){
-    	this.x += (250 * dt); 
-    } else if (this.x < 505 && level < 20){
-    	this.x += (275 * dt); 
-    } else if (this.x < 505 && level < 25){
-    	this.x += (300 * dt); 
-    } else if (this.x < 505 && level < 30){
-    	this.x += (350 * dt); 
-    } else if (this.x < 505 && level < 35){
-    	this.x += (375 * dt); 
-    } else if (this.x < 505 && level < 40){
-    	this.x += (400 * dt); 
-    } else if (this.x < 505 && level < 45){
-    	this.x += (425 * dt); 
-    } else if (this.x < 505 && level < 50){
-    	this.x += (450 * dt);
-    }  else if (this.x < 505 && level >= 50){
-    	this.x += (475 * dt);
-    } else {
-    	this.x = (-(Math.random() * 500));
-    }
-}
+	if(difficulty === 'easy' && this.x < 505){
+		this.speed = 150 + (player.level * 5);
+		this.x += this.speed * dt;
+	} else {
+		if(difficulty === 'medium' && this.x < 505){
+			this.speed = 150 + (player.level * 6.6);
+			this.x += this.speed * dt;
+		} else {
+			if(difficulty === 'hard' && this.x < 505){
+				this.speed = 150 + (player.level * 8.5);
+				this.x += this.speed * dt;
+		} else {
+			this.x = (-(Math.random() * 350));
+		}
+	}
+	} 
     
-
     // Check for enemy / player collision
     if (this.x < player.x + 25 && this.x + 65 > player.x && this.y < player.y + 60 && this.y + 40 > player.y){
     	player.reset();
-    	lives--;
-    	if(lives === 2) {
+    	player.lives--;
+    	if(player.lives === 2) {
     		// removes 1 heart on death
     		document.querySelector('.life-three').src = '';
-    	} else if (lives === 1){
+    	} else if (player.lives === 1){
     		document.querySelector('.life-two').src = '';
-    	} else if (lives === 0){
+    	} else if (player.lives === 0){
     		document.querySelector('.life-one').src = ''
-    		alert("You lose! You reached level " + level + ". Your final score was " + score + " Play again?")
+    		alert("You lose! You reached level " + player.level + ". Your final score was " + score + " Play again?")
     		score = 0;
     		scoreCount.innerHTML = score;
-    		level = 0;
-    		levelCount.innerHTML = level;
+    		player.level = 0;
+    		levelCount.innerHTML = player.level;
             window.location.reload(true);
     }
 
@@ -154,15 +93,17 @@ let Player = function(){
 	this.sprite = "images/char-boy.png";
 	this.x = 200;
 	this.y = 300;
+	this.level = 0;
+	this.lives = 3;
 
 }
 
 Player.prototype.update = function() {
-	if(player.y < 20){
+	if(this.y < 20){
 		score++;
 		scoreCount.innerHTML = score;
-		level++;
-		levelCount.innerHTML = level;	
+		this.level++;
+		levelCount.innerHTML = this.level;	
 		this.reset();
 	}
 }
@@ -206,16 +147,16 @@ Gem.prototype.render = function() {
 
 Gem.prototype.update = function() {
 	// Spawns gems on certain rounds
-	if(level === 5 && gemCount === 0) {
+	if(player.level === 5 && gemCount === 0) {
 		gem1.x = 100;
 		gem1.y = 130;
-	} else if (level === 15 && gemCount === 1){
+	} else if (player.level === 15 && gemCount === 1){
 		gem2.x = 300;
 		gem2.y = 50;
-	} else if (level === 25 && gemCount === 2){
+	} else if (player.level === 25 && gemCount === 2){
 		gem3.x = 1;
 		gem3.y = 140;
-	}  else if (level === 35 && gemCount === 3){
+	}  else if (player.level === 35 && gemCount === 3){
 		gem4.x = 400;
 		gem4.y = 45;
 	}
@@ -244,32 +185,32 @@ function getDistance(x1, y1, x2, y2){
 
 // Spawn enemys depending on what difficulty is selected
 if(difficulty === 'easy') {
-const enemy1 = new Enemy(-100, 60);
-const enemy2 = new Enemy(-210, 140);
-const enemy3 = new Enemy(-375, 230);
+let enemy1 = new Enemy(-100, 60, 75);
+let enemy2 = new Enemy(-210, 140, 75);
+var enemy3 = new Enemy(-375, 230, 75);
 var gem1 = new Gem(4000, 2500);
 var gem2 = new Gem(4000, 2500);
 var gem3 = new Gem(4000, 2500);
 var gem4 = new Gem(4000, 2500);
-var allEnemies = [enemy1, enemy2, enemy3, gem1, gem2, gem3, gem4]
+var allEnemies = [enemy1, enemy2, enemy3, gem1, gem2, gem3, gem4];
 } else if (difficulty === 'medium'){
-const enemy1 = new Enemy(-100, 60);
-const enemy2 = new Enemy(-210, 140);
-const enemy3 = new Enemy(-375, 230);
-const enemy4 = new Enemy(-400, 60);
-const enemy5 = new Enemy(-550, 140);
+const enemy1 = new Enemy(-100, 60, 75);
+const enemy2 = new Enemy(-210, 140, 75);
+const enemy3 = new Enemy(-375, 230, 75);
+const enemy4 = new Enemy(-400, 60, 75);
+const enemy5 = new Enemy(-550, 140, 75);
 var gem1 = new Gem(4000, 2500);
 var gem2 = new Gem(4000, 2500);
 var gem3 = new Gem(4000, 2500);
 var gem4 = new Gem(4000, 2500);
-var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5,gem1, gem2, gem3, gem4]
+var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5,gem1, gem2, gem3, gem4];
 } else if (difficulty === 'hard'){
-const enemy1 = new Enemy(-100, 60);
-const enemy2 = new Enemy(-210, 140);
-const enemy3 = new Enemy(-375, 230);
-const enemy4 = new Enemy(-400, 60);
-const enemy5 = new Enemy(-550, 140);
-const enemy6 = new Enemy(-770, 230);
+const enemy1 = new Enemy(-100, 60, 75);
+const enemy2 = new Enemy(-210, 140, 75);
+const enemy3 = new Enemy(-375, 230, 75);
+const enemy4 = new Enemy(-400, 60, 75);
+const enemy5 = new Enemy(-550, 140, 75);
+const enemy6 = new Enemy(-770, 230, 75);
 var gem1 = new Gem(4000, 2500);
 var gem2 = new Gem(4000, 2500);
 var gem3 = new Gem(4000, 2500);
