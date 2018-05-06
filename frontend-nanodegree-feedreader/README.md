@@ -13,9 +13,7 @@ This is a project which demonstrates different testing methods using Jasmine!
 
 
 ## Instructions
-To viw the project, follow the link below!
-
-https://troyb95.github.io/frontend-nanodegree-feedreader/
+To viw the project, please clone the project repo and open the Index.html file in any browser!
 
 
 ## Contributing
