@@ -1,0 +1,102 @@
+body {
+	width: 100%;
+	height: 100%;
+	background-image: url('../imgs/whiteboard.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	background-color: #90aaff;
+	font-family: 'Gochi Hand', cursive;
+
+	h3 {
+		margin: 0;
+		padding: 0;
+	}
+
+	.remove-events {
+		pointer-events: none;
+	}
+	
+	.top-bar {
+		display: flex;
+		width: 80%;
+		flex-direction: row;
+		justify-content: space-around;
+		font-size: 1.5em;
+
+		.turn-selector {
+			margin-left: 7.5em;
+
+			button {
+				font-size: 2.5em;
+				background-color: #90AAFF;
+			}
+		}
+
+		.refresh-icon {
+			font-size: 3em;
+			color: #aaa;
+		}
+
+		.refresh-icon:hover {
+			color: #000
+		}
+
+	}
+
+	.table {
+		width: 100%;
+		height: 600px;
+		display: flex;
+		justify-content: center;
+	
+
+		.board {
+		width: 400px;
+		height: 400px;
+		margin: 0;
+		padding: 0;
+
+			.inside-board {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-wrap: wrap;
+
+
+				.cell {
+					width: 33%;
+					height: 33%;
+					border-top: 1px solid black;
+					border-left: 1px solid black;
+					list-style-type: none;
+					margin: 0;
+					padding: 0;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-size: 10em
+				}
+
+				.bot-cell {
+					border-bottom: 1px solid black;
+				}
+
+				.right-cell {
+					border-right: 1px solid black;
+				}
+			}
+
+
+
+		
+		}
+	}
+
+	
+
+
+	
+}
