@@ -13,7 +13,7 @@ This is a project which demonstrates different testing methods using Jasmine!
 
 
 ## Instructions
-To viw the project, please clone the project repo and open the Index.html file in any browser!
+To view the project, please clone the project repo and open the Index.html file in any browser!
 
 
 ## Contributing
